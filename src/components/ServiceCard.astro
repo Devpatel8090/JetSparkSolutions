@@ -1,0 +1,16 @@
+---
+interface Props {
+  service: { icon: string; title: string; summary: string; points?: string[] };
+  detailed?: boolean;
+}
+const { service, detailed = false } = Astro.props;
+---
+
+<article class="card">
+  <div class="icon" aria-hidden="true">{service.icon}</div>
+  <h3>{service.title}</h3>
+  <p>{service.summary}</p>
+  {detailed && service.points && (
+    <ul>{service.points.map((p) => <li>{p}</li>)}</ul>
+  )}
+</article>

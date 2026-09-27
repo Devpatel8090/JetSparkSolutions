@@ -1,0 +1,23 @@
+---
+import site from '../data/site.json';
+---
+
+<section class="cta">
+  <div class="container inner">
+    <div>
+      <h2>Is your property fire-safe?</h2>
+      <p>Book a free site visit and get a clear quotation from {site.name}.</p>
+    </div>
+    <div class="actions">
+      <a href="/contact" class="btn btn-light">Get a Free Quote</a>
+      <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="btn btn-outline" style="color:#fff">📞 {site.contact.phone}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta { background: linear-gradient(90deg, var(--red-dark), var(--red) 50%, var(--orange)); color: #fff; padding: 56px 0; }
+  .inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .inner p { margin: 0; opacity: .92; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

@@ -1,0 +1,80 @@
+{
+  "_note": "Edit this file to update the business details, services and text shown across the whole website. Items marked TODO still need real details from the booklet.",
+
+  "name": "JetSpark Solutions",
+  "tagline": "Protecting people and property from fire",
+  "description": "JetSpark Solutions provides fire safety equipment, installation, inspection and maintenance for homes, offices, shops and industries.",
+
+  "contact": {
+    "owner": "Jay",
+    "phone": "+91 00000 00000",
+    "whatsapp": "910000000000",
+    "email": "info@jetsparksolutions.com",
+    "address": "TODO: Office address, City, State, PIN",
+    "hours": "Mon – Sat, 9:00 AM – 7:00 PM",
+    "mapEmbedUrl": ""
+  },
+
+  "stats": [
+    { "value": "24/7", "label": "Emergency support" },
+    { "value": "100%", "label": "Standards-compliant work" },
+    { "value": "TODO", "label": "Projects completed" }
+  ],
+
+  "services": [
+    {
+      "icon": "🧯",
+      "title": "Fire Extinguishers",
+      "summary": "Supply, installation and refilling of ABC, CO₂, water and foam extinguishers.",
+      "points": ["All types and sizes", "Refilling and pressure testing", "Correct placement and signage"]
+    },
+    {
+      "icon": "🚨",
+      "title": "Fire Alarm & Detection",
+      "summary": "Smoke and heat detectors, manual call points and alarm panels.",
+      "points": ["Conventional and addressable systems", "Design and installation", "Testing and commissioning"]
+    },
+    {
+      "icon": "💧",
+      "title": "Hydrant & Sprinkler Systems",
+      "summary": "Complete fire hydrant, hose reel and automatic sprinkler installations.",
+      "points": ["Pipeline and pump sets", "Hose reels and landing valves", "Sprinkler design as per code"]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Annual Maintenance (AMC)",
+      "summary": "Scheduled inspection and servicing so your systems work when they're needed.",
+      "points": ["Periodic inspections", "Service reports and records", "Priority breakdown support"]
+    },
+    {
+      "icon": "📋",
+      "title": "Fire Safety Audit & NOC",
+      "summary": "Site audits and help with the documents needed for fire NOC approval.",
+      "points": ["Risk assessment", "Compliance checklist", "NOC documentation support"]
+    },
+    {
+      "icon": "🎓",
+      "title": "Training & Mock Drills",
+      "summary": "Hands-on fire safety training and evacuation drills for your staff.",
+      "points": ["Extinguisher handling", "Evacuation planning", "Certificates for participants"]
+    }
+  ],
+
+  "whyUs": [
+    { "title": "Certified quality", "text": "We use approved equipment and follow applicable fire safety standards." },
+    { "title": "Fast response", "text": "Quick site visits, quotes and emergency support when you need it." },
+    { "title": "End-to-end service", "text": "From design and supply to installation, maintenance and paperwork." },
+    { "title": "Fair pricing", "text": "Clear quotations with no hidden charges." }
+  ],
+
+  "industries": ["Homes & Societies", "Offices", "Shops & Showrooms", "Factories & Warehouses", "Schools & Hospitals", "Hotels & Restaurants"],
+
+  "about": {
+    "heading": "About JetSpark Solutions",
+    "paragraphs": [
+      "TODO: Replace with the story from the booklet. JetSpark Solutions was started by Jay to make professional fire safety simple and affordable for every business and home.",
+      "We handle everything from choosing the right equipment to installing it, keeping it maintained and making sure your premises stay compliant."
+    ],
+    "mission": "To protect lives and property with reliable fire safety solutions and honest service."
+  }
+}
