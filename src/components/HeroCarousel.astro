@@ -44,8 +44,7 @@ const hrefFor = (href: string, waText?: string) =>
             )}
           </div>
           <div class="visual">
-            {s.image && <img src={s.image} alt={s.imageAlt ?? ''} width="380" class:list={['hero-logo', { 'only-light': s.imageDark }]} />}
-            {s.imageDark && <img src={s.imageDark} alt={s.imageAlt ?? ''} width="380" class="hero-logo only-dark" />}
+            {s.image && <img src={s.image} alt={s.imageAlt ?? ''} width="380" class="hero-logo" />}
             {s.badges && (
               <div class="badges">
                 {s.badges.map((b, n) => (

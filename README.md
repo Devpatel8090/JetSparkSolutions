@@ -25,10 +25,6 @@ Notes:
 - `mapEmbedUrl`: on Google Maps click **Share → Embed a map** and paste only the `src="..."` link.
 - Logo files are in `public/` (`logo.png`, `favicon.png`).
 
-## 🌙 Dark mode
-
-Visitors can switch between light and dark with the moon/sun button in the header. The site follows the phone/computer setting until the visitor picks one. Colours for both modes are defined at the top of `src/styles/global.css`.
-
 ## 🛒 Online shop
 
 Products live in **[`src/data/products.json`](src/data/products.json)**. Each product has:
