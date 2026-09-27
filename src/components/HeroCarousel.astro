@@ -44,7 +44,8 @@ const hrefFor = (href: string, waText?: string) =>
             )}
           </div>
           <div class="visual">
-            {s.image && <img src={s.image} alt={s.imageAlt ?? ''} width="380" class="hero-logo" />}
+            {s.image && <img src={s.image} alt={s.imageAlt ?? ''} width="380" class:list={['hero-logo', { 'only-light': s.imageDark }]} />}
+            {s.imageDark && <img src={s.imageDark} alt={s.imageAlt ?? ''} width="380" class="hero-logo only-dark" />}
             {s.badges && (
               <div class="badges">
                 {s.badges.map((b, n) => (
@@ -135,17 +136,17 @@ const hrefFor = (href: string, waText?: string) =>
   .hero-carousel { position: relative; overflow: hidden; }
   .track { display: flex; transition: transform .7s cubic-bezier(.65, 0, .35, 1); }
   .slide { flex: 0 0 100%; padding: 64px 0 80px; display: flex; align-items: center; }
-  .slide-1 { background: radial-gradient(circle at 80% 30%, #fff1e6, #fff 60%); }
+  .slide-1 { background: var(--hero-bg); }
   .slide-2 { background: linear-gradient(120deg, #1f2226 0%, #5a0a0e 55%, #c8161d 100%); color: #fff; }
   .slide-2 .lead { color: #f1dcd2; }
   .slide-2 .gradient-text { background: linear-gradient(90deg, #ffb070, var(--amber)); -webkit-background-clip: text; background-clip: text; }
   .slide-2 .eyebrow { color: var(--amber); }
   .slide-2 .btn-outline { color: #fff; }
-  .slide-3 { background: linear-gradient(120deg, #fff4e8 0%, #ffe2c7 60%, #ffc995 100%); }
+  .slide-3 { background: var(--offer-bg); }
   .certs { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 12px; }
   .certs li {
     display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: center; padding: 10px 16px;
-    background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
   }
   .certs span { grid-row: span 2; font-size: 1.4rem; }
   .certs strong { font-size: .92rem; line-height: 1.2; }
@@ -169,7 +170,7 @@ const hrefFor = (href: string, waText?: string) =>
   .badge-1 span { font-size: 1rem; margin-top: 6px; }
   .badge-1 small { font-size: .9rem; max-width: 170px; margin-top: 4px; }
   .badge-2 {
-    width: 170px; height: 170px; right: 0; bottom: 0; background: var(--ink);
+    width: 170px; height: 170px; right: 0; bottom: 0; background: var(--band);
     border: 6px dashed var(--amber); transform: rotate(-8deg);
   }
   .badge-2 strong { font-size: 2.6rem; color: var(--amber); }
@@ -195,10 +196,10 @@ const hrefFor = (href: string, waText?: string) =>
 
   .arrow {
     position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%;
-    border: none; background: rgba(255, 255, 255, .85); color: var(--red); font-size: 1.8rem; line-height: 1;
+    border: none; background: var(--surface); opacity: .9; color: var(--red); font-size: 1.8rem; line-height: 1;
     cursor: pointer; box-shadow: var(--shadow); display: grid; place-items: center; padding-bottom: 4px;
   }
-  .arrow:hover { background: #fff; }
+  .arrow:hover { opacity: 1; }
   .prev { left: 16px; }
   .next { right: 16px; }
   .dots { position: absolute; left: 0; right: 0; bottom: 24px; display: flex; justify-content: center; gap: 10px; }

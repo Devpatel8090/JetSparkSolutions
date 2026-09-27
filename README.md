@@ -13,7 +13,7 @@ Almost everything is in **one file: [`src/data/site.json`](src/data/site.json)**
 | Services (add / remove / edit) | `services` |
 | "Why choose us" points | `whyUs` |
 | Institutions we protect | `institutions`, `institutionsIntro` |
-| About page text | `about` |
+| About page story, mission and values | `about` |
 | Numbers bar (24/7, projects, ...) | `stats` |
 | Satisfied customers | `clients`, `clientsIntro` |
 | Home page carousel slides | `heroSlides` (a button `href` of `"whatsapp"` opens a WhatsApp chat) |
@@ -24,6 +24,10 @@ Notes:
 - `whatsapp` is the number with country code, digits only (e.g. `919876543210`).
 - `mapEmbedUrl`: on Google Maps click **Share → Embed a map** and paste only the `src="..."` link.
 - Logo files are in `public/` (`logo.png`, `favicon.png`).
+
+## 🌙 Dark mode
+
+Visitors can switch between light and dark with the moon/sun button in the header. The site follows the phone/computer setting until the visitor picks one. Colours for both modes are defined at the top of `src/styles/global.css`.
 
 ## 🛒 Online shop
 

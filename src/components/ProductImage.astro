@@ -15,7 +15,7 @@ const { image, name, icon, large = false } = Astro.props;
 <style>
   .pimg {
     aspect-ratio: 4 / 3; border-radius: 12px; display: grid; place-items: center; overflow: hidden;
-    background: linear-gradient(135deg, #fff1e6, #ffd9bf);
+    background: linear-gradient(135deg, var(--tile-a), var(--tile-b));
   }
   .pimg span { font-size: 3.5rem; }
   .pimg.large span { font-size: 7rem; }

@@ -51,7 +51,8 @@
       "titleEnd": "Solutions",
       "image": "/logo.png",
       "imageAlt": "JetSpark Solutions logo",
-      "showCertifications": true
+      "showCertifications": true,
+      "imageDark": "/logo-dark.png"
     },
     {
       "eyebrow": "🔥 New · Now selling online",
@@ -289,9 +290,33 @@
   "about": {
     "heading": "About JetSpark Solutions",
     "paragraphs": [
-      "TODO: Replace with the story from the booklet. JetSpark Solutions was started by Jay to make professional fire safety simple and affordable for every business and home.",
-      "We handle everything from choosing the right equipment to installing it, keeping it maintained and making sure your premises stay compliant."
+      "JetSpark Solutions was founded by Jay with a simple belief: every home, business and institution deserves fire protection that actually works when it matters – without confusing jargon or inflated prices.",
+      "Too often, fire safety is treated as a box to tick for a certificate. Extinguishers go unrefilled, alarms go untested and hydrant systems sit unchecked for years. Jay started JetSpark to change that – combining the right equipment with honest advice and dependable follow-up, so customers are genuinely protected and not just compliant on paper.",
+      "Today we design, install and maintain complete fire protection systems – hydrants, sprinklers, fire alarms and extinguishers – and help clients with Fire NOC paperwork, safety audits and staff training. We supply BIS-certified equipment and are registered on the Government e-Marketplace (GeM), so we can serve private clients and government institutions alike.",
+      "From our base in Shela, Gujarat, we have earned the trust of 20+ happy customers, including Harvi Group, Nilkanth Society and B-Ethics Group. Every project gets the same care, whether it is a single extinguisher for a shop or a complete system for a factory."
     ],
-    "mission": "To protect lives and property with reliable fire safety solutions and honest service."
+    "mission": "To protect lives and property with reliable fire safety solutions, honest advice and service you can count on.",
+    "values": [
+      {
+        "icon": "🛡️",
+        "title": "Safety first",
+        "text": "We recommend what keeps you safe – never just what is cheapest or easiest to sell."
+      },
+      {
+        "icon": "🤝",
+        "title": "Honest & transparent",
+        "text": "Clear quotes, genuine BIS-certified products and no hidden charges."
+      },
+      {
+        "icon": "⚡",
+        "title": "Always responsive",
+        "text": "Same-day service where possible and 24/7 support for emergencies."
+      },
+      {
+        "icon": "🔁",
+        "title": "Long-term partner",
+        "text": "AMC, refilling and inspections that keep your systems ready year after year."
+      }
+    ]
   }
 }
