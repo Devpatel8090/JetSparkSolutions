@@ -1,38 +1,16 @@
 ---
 interface Props {
-  service: {
-    icon: string;
-    title: string;
-    summary: string;
-    points?: string[];
-    highlight?: string;
-    link?: { href: string; label: string };
-  };
+  service: { icon: string; title: string; summary: string; points?: string[] };
+  detailed?: boolean;
 }
-const { service: s } = Astro.props;
+const { service, detailed = false } = Astro.props;
 ---
 
-<article class="card service">
-  <div class="icon-box" aria-hidden="true">{s.icon}</div>
-  <h3>{s.title}</h3>
-  <p>{s.summary}</p>
-  {s.points && <ul class="dot-list">{s.points.map((p) => <li>{p}</li>)}</ul>}
-  {s.highlight && <p class="highlight">🎁 {s.highlight}</p>}
-  {s.link && <a class="more" href={s.link.href}>{s.link.label}</a>}
+<article class="card">
+  <div class="icon" aria-hidden="true">{service.icon}</div>
+  <h3>{service.title}</h3>
+  <p>{service.summary}</p>
+  {detailed && service.points && (
+    <ul>{service.points.map((p) => <li>{p}</li>)}</ul>
+  )}
 </article>
-
-<style>
-  .service { display: flex; flex-direction: column; }
-  .service::before {
-    content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--grad);
-    transform: scaleX(0); transform-origin: left; transition: transform .3s;
-  }
-  .service:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(20, 20, 30, .12); }
-  .service:hover::before { transform: scaleX(1); }
-  h3 { font-size: 1.35rem; }
-  .highlight {
-    margin: 18px 0 0; padding: 10px 14px; border-radius: 10px; background: #fff4e8; color: #b0470c; font-weight: 600; font-size: .92rem;
-  }
-  .more { margin-top: 18px; font-weight: 700; text-decoration: none; }
-  .more:hover { text-decoration: underline; }
-</style>

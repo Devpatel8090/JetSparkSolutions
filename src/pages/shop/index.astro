@@ -1,5 +1,4 @@
 ---
-import PageHero from '../../components/PageHero.astro';
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import AddToCartScript from '../../components/AddToCartScript.astro';
@@ -8,7 +7,12 @@ import site from '../../data/site.json';
 ---
 
 <Base title="Shop" description={`Buy fire extinguishers, fire alarm parts, hydrant equipment and safety accessories from ${site.name}.`}>
-  <PageHero eyebrow="Product Range" title="BIS-Certified Fire" highlight="Equipment" text="Order online and pay on delivery or by UPI. We'll confirm availability and delivery on WhatsApp or by phone." />
+  <section class="page-hero">
+    <div class="container">
+      <h1>Shop Fire Safety Equipment</h1>
+      <p>Order online and pay on delivery or by UPI. We'll confirm availability and delivery on WhatsApp or by phone.</p>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">

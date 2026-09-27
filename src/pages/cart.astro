@@ -1,11 +1,15 @@
 ---
-import PageHero from '../components/PageHero.astro';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 ---
 
 <Base title="Your Cart">
-  <PageHero title="Your" highlight="Cart" text="Review your items, add your details and place the order. No online payment needed – pay on delivery or by UPI." />
+  <section class="page-hero">
+    <div class="container">
+      <h1>Your Cart</h1>
+      <p>Review your items, add your details and place the order. No online payment needed – pay on delivery or by UPI.</p>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -19,7 +23,6 @@ import site from '../data/site.json';
           <h2>Items</h2>
           <ul id="cart-items" class="items"></ul>
           <div class="total"><span>Estimated total</span><strong id="cart-total"></strong></div>
-          <p class="small seller">GST invoice from {site.name} · GSTIN {site.contact.gst}</p>
           <p class="small" id="ask-note" hidden>Items marked “Ask for price” will be quoted when we confirm your order.</p>
         </div>
 
@@ -164,7 +167,6 @@ import site from '../data/site.json';
   input:focus, select:focus, textarea:focus { outline: 2px solid var(--orange); border-color: transparent; }
   .actions { display: flex; gap: 12px; flex-wrap: wrap; }
   .wa-btn { background: #25d366; color: #fff; }
-  .seller { margin-top: 10px; }
   .small { font-size: .88rem; color: var(--muted); margin: 0; }
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }

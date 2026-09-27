@@ -1,8 +1,8 @@
 {
   "_note": "Edit this file to update the business details, services and text shown across the whole website. Items marked TODO still need real details from the booklet.",
   "name": "JetSpark Solutions",
-  "tagline": "BIS Certified & GeM Registered fire safety experts",
-  "description": "Professional fire protection system installation, testing, commissioning & maintenance for residential, commercial & industrial projects across Gujarat.",
+  "tagline": "Protecting people and property from fire",
+  "description": "JetSpark Solutions provides fire safety equipment, installation, inspection and maintenance for homes, offices, shops and industries.",
   "contact": {
     "owner": "Jay",
     "phone": "+91 81414 19996",
@@ -10,35 +10,17 @@
     "email": "jetsparksolutions@gmail.com",
     "address": "G-504, Shivalik Park View-2, Shela, Gujarat 380057, India",
     "hours": "Mon – Sat, 9:00 AM – 7:00 PM",
-    "mapEmbedUrl": "https://maps.google.com/maps?q=Shivalik%20Park%20View%202%2C%20Shela%2C%20Gujarat%20380057&output=embed",
-    "gst": "24GACPP7816M1Z7"
+    "mapEmbedUrl": "https://maps.google.com/maps?q=Shivalik%20Park%20View%202%2C%20Shela%2C%20Gujarat%20380057&output=embed"
   },
-  "certifications": [
-    {
-      "icon": "🛡️",
-      "title": "BIS Certified",
-      "sub": "IS 15683:2018"
-    },
-    {
-      "icon": "🏛️",
-      "title": "GeM Registered",
-      "sub": "Govt. approved"
-    },
-    {
-      "icon": "⚡",
-      "title": "Quick Response",
-      "sub": "Same day service"
-    }
-  ],
   "heroSlides": [
     {
-      "eyebrow": "🏆 BIS Certified & GeM Registered",
-      "title": "Protect Your Life",
-      "highlight": "With JetSpark",
-      "text": "Professional fire protection system installation, testing, commissioning & maintenance for residential, commercial & industrial projects across Gujarat.",
+      "eyebrow": "Fire Safety Experts",
+      "title": "Protecting people",
+      "highlight": "and property from fire",
+      "text": "JetSpark Solutions provides fire safety equipment, installation, inspection and maintenance for homes, offices, shops and industries.",
       "buttons": [
         {
-          "label": "Get Free Quote →",
+          "label": "Get a Free Quote",
           "href": "/contact",
           "style": "primary"
         },
@@ -48,8 +30,8 @@
           "style": "outline"
         }
       ],
-      "titleEnd": "Solutions",
-      "visual": "flame"
+      "image": "/logo.png",
+      "imageAlt": "JetSpark Solutions logo"
     },
     {
       "eyebrow": "🔥 New · Now selling online",
@@ -111,165 +93,105 @@
   ],
   "stats": [
     {
-      "value": "20",
-      "suffix": "+",
-      "label": "Happy Customers"
+      "value": "20+",
+      "label": "Happy customers"
     },
     {
       "value": "24/7",
-      "label": "Emergency Support"
+      "label": "Emergency support"
     },
     {
-      "value": "BIS",
-      "label": "Certified Equipment"
-    },
-    {
-      "value": "GeM",
-      "label": "Registered Supplier"
+      "value": "100%",
+      "label": "Standards-compliant work"
     }
   ],
   "services": [
     {
-      "icon": "🔧",
-      "title": "Fire System Design & Installation",
-      "summary": "Complete fire protection system installation with MS piping, hydrant systems, sprinklers, hose reels & all accessories.",
+      "icon": "🧯",
+      "title": "Fire Extinguishers",
+      "summary": "Supply, installation and refilling of ABC, CO₂, water and foam extinguishers.",
       "points": [
-        "Fire Hydrant System",
-        "Fire Sprinkler System",
-        "Fire Alarm & Detection System",
-        "Smoke Detection System",
-        "Fire Extinguisher Supply & Installation",
-        "MS Fire Piping & Fittings"
+        "All types and sizes",
+        "Refilling and pressure testing",
+        "Correct placement and signage"
       ]
     },
     {
-      "icon": "🔩",
-      "title": "Fire Maintenance Services",
-      "summary": "Regular preventive maintenance and breakdown support to ensure your fire systems are always operational and compliant.",
+      "icon": "🚨",
+      "title": "Fire Alarm & Detection",
+      "summary": "Smoke and heat detectors, manual call points and alarm panels.",
       "points": [
-        "Routine Inspection & Testing",
-        "Preventive Maintenance",
-        "Breakdown Support",
-        "Refilling of Fire Extinguishers",
-        "System Repair & Replacement",
-        "Fire Safety Inspection & Support"
+        "Conventional and addressable systems",
+        "Design and installation",
+        "Testing and commissioning"
+      ]
+    },
+    {
+      "icon": "💧",
+      "title": "Hydrant & Sprinkler Systems",
+      "summary": "Complete fire hydrant, hose reel and automatic sprinkler installations.",
+      "points": [
+        "Pipeline and pump sets",
+        "Hose reels and landing valves",
+        "Sprinkler design as per code"
+      ]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Annual Maintenance (AMC)",
+      "summary": "Scheduled inspection and servicing so your systems work when they're needed.",
+      "points": [
+        "Periodic inspections",
+        "Service reports and records",
+        "Priority breakdown support"
       ]
     },
     {
       "icon": "📋",
-      "title": "AMC (Annual Maintenance Contract)",
-      "summary": "Flexible AMC plans offering comprehensive coverage with emergency support, compliance reports & performance testing.",
+      "title": "Fire Safety Audit & NOC",
+      "summary": "Site audits and help with the documents needed for fire NOC approval.",
       "points": [
-        "Monthly / Quarterly Check-ups",
-        "24/7 Emergency Support",
-        "Compliance Reports",
-        "Performance Testing",
-        "Priority Service Response"
-      ],
-      "highlight": "2-year AMC = 3rd year FREE*"
-    },
-    {
-      "icon": "📜",
-      "title": "Fire NOC (No Objection Certificate)",
-      "summary": "Complete assistance with fire NOC documentation, government approval process & site inspection support.",
-      "points": [
-        "Fire NOC Documentation",
-        "Government Approval Process",
-        "Site Inspection Support",
-        "Renewal of Fire NOC"
+        "Risk assessment",
+        "Compliance checklist",
+        "NOC documentation support"
       ]
     },
     {
       "icon": "🎓",
-      "title": "Fire Safety Audit & Training",
-      "summary": "Comprehensive fire risk assessment, safety audit reports and mock drill training for your staff.",
+      "title": "Training & Mock Drills",
+      "summary": "Hands-on fire safety training and evacuation drills for your staff.",
       "points": [
-        "Fire Risk Assessment",
-        "Safety Audit Reports",
-        "Mock Drill Training",
-        "Staff Fire Safety Training"
+        "Extinguisher handling",
+        "Evacuation planning",
+        "Certificates for participants"
       ]
-    },
-    {
-      "icon": "🧯",
-      "title": "Fire Equipment Supply",
-      "summary": "Supply of BIS-certified fire fighting equipment including extinguishers, hose pipes, pumps, panels & accessories.",
-      "points": [
-        "Fire Extinguishers (ABC, CO₂, Foam, Water)",
-        "Hose Pipes & Hydrant Valves",
-        "Fire Pumps & Panels",
-        "Safety Signages & Accessories"
-      ],
-      "link": {
-        "href": "/shop",
-        "label": "Shop equipment online →"
-      }
     }
   ],
   "whyUs": [
     {
-      "icon": "🏆",
-      "title": "BIS Certified & GeM Registered",
-      "text": "BIS-certified equipment (IS 15683:2018) and a Government e-Marketplace registered supplier."
+      "title": "Certified quality",
+      "text": "We use approved equipment and follow applicable fire safety standards."
     },
     {
-      "icon": "⚡",
-      "title": "Quick response",
-      "text": "Same-day service, fast site visits and 24/7 emergency support."
+      "title": "Fast response",
+      "text": "Quick site visits, quotes and emergency support when you need it."
     },
     {
-      "icon": "🔁",
       "title": "End-to-end service",
-      "text": "Design, supply, installation, AMC, NOC paperwork and training – all by one team."
+      "text": "From design and supply to installation, maintenance and paperwork."
     },
     {
-      "icon": "💰",
-      "title": "Price match guarantee",
-      "text": "Clear quotations, no hidden charges – and we'll match a genuine lower quote.*"
+      "title": "Fair pricing",
+      "text": "Clear quotations with no hidden charges."
     }
   ],
-  "institutionsIntro": "We offer customized fire safety solutions for all types of establishments — from hospitals to industrial plants.",
-  "institutions": [
-    {
-      "icon": "🏥",
-      "name": "Hospitals & Healthcare"
-    },
-    {
-      "icon": "🏫",
-      "name": "Schools & Colleges"
-    },
-    {
-      "icon": "🏛️",
-      "name": "Government Buildings"
-    },
-    {
-      "icon": "🏢",
-      "name": "Commercial Offices"
-    },
-    {
-      "icon": "🏭",
-      "name": "Industrial Plants & Factories"
-    },
-    {
-      "icon": "🛕",
-      "name": "Temples & Religious Places"
-    },
-    {
-      "icon": "🎭",
-      "name": "Theatres & Multiplexes"
-    },
-    {
-      "icon": "🛍️",
-      "name": "Shopping Malls & Showrooms"
-    },
-    {
-      "icon": "🏨",
-      "name": "Hotels & Restaurants"
-    },
-    {
-      "icon": "🏘️",
-      "name": "Residential Societies"
-    }
+  "industries": [
+    "Homes & Societies",
+    "Offices",
+    "Shops & Showrooms",
+    "Factories & Warehouses",
+    "Schools & Hospitals",
+    "Hotels & Restaurants"
   ],
   "clients": [
     {

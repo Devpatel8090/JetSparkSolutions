@@ -8,11 +8,10 @@ Almost everything is in **one file: [`src/data/site.json`](src/data/site.json)**
 
 | What you want to change | Where in `site.json` |
 |---|---|
-| Phone, WhatsApp, email, address, hours, GST number | `contact` |
-| BIS / GeM / Quick Response cards in the hero | `certifications` |
+| Phone, WhatsApp, email, address, hours | `contact` |
 | Services (add / remove / edit) | `services` |
 | "Why choose us" points | `whyUs` |
-| Institutions we protect | `institutions`, `institutionsIntro` |
+| Industries served | `industries` |
 | About page text | `about` |
 | Numbers bar (24/7, projects, ...) | `stats` |
 | Satisfied customers | `clients`, `clientsIntro` |

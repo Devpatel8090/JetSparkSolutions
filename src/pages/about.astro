@@ -1,5 +1,4 @@
 ---
-import PageHero from '../components/PageHero.astro';
 import Base from '../layouts/Base.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import site from '../data/site.json';
@@ -7,7 +6,12 @@ const { about } = site;
 ---
 
 <Base title="About" description={about.paragraphs[0]}>
-  <PageHero eyebrow="About Us" title="About" highlight="JetSpark Solutions" text={site.tagline} />
+  <section class="page-hero">
+    <div class="container">
+      <h1>{about.heading}</h1>
+      <p>{site.tagline}</p>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container about">
