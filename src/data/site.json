@@ -55,7 +55,40 @@
         "/products/fire-ball.svg",
         "/products/smoke-detector.svg",
         "/products/fire-blanket.svg"
-      ]
+      ],
+      "whatsappText": "Hi JetSpark Solutions, I'd like to order fire safety products."
+    },
+    {
+      "eyebrow": "🎁 Special AMC offer",
+      "title": "Take a 2-year AMC,",
+      "highlight": "get the 3rd year FREE",
+      "text": "Sign a 2-year Annual Maintenance Contract with us and we'll maintain your fire safety systems for the 3rd year at no cost. Plus our Price Match Guarantee: found a lower quote? We'll match it.",
+      "buttons": [
+        {
+          "label": "Get AMC Quote",
+          "href": "/contact",
+          "style": "primary"
+        },
+        {
+          "label": "💬 Ask on WhatsApp",
+          "href": "whatsapp",
+          "style": "outline"
+        }
+      ],
+      "whatsappText": "Hi JetSpark Solutions, I'm interested in the 2-year AMC offer with the 3rd year free.",
+      "badges": [
+        {
+          "big": "2 + 1",
+          "small": "Years of AMC",
+          "sub": "3rd year maintenance FREE"
+        },
+        {
+          "big": "✓",
+          "small": "Price Match",
+          "sub": "Guarantee"
+        }
+      ],
+      "note": "*Terms & conditions apply."
     }
   ],
   "stats": [

@@ -2,8 +2,9 @@
 import site from '../data/site.json';
 
 const slides = site.heroSlides;
-const waHref = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(`Hi ${site.name}, I'd like to order fire safety products.`)}`;
-const hrefFor = (href: string) => (href === 'whatsapp' ? waHref : href);
+const defaultWaText = `Hi ${site.name}, I'd like to know more about your fire safety services.`;
+const hrefFor = (href: string, waText?: string) =>
+  href === 'whatsapp' ? `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waText ?? defaultWaText)}` : href;
 ---
 
 <section class="hero-carousel" aria-roledescription="carousel" aria-label="Highlights">
@@ -25,7 +26,7 @@ const hrefFor = (href: string) => (href === 'whatsapp' ? waHref : href);
             <div class="actions">
               {s.buttons.map((b) => (
                 <a
-                  href={hrefFor(b.href)}
+                  href={hrefFor(b.href, s.whatsappText)}
                   class={`btn btn-${b.style}`}
                   {...(b.href === 'whatsapp' ? { target: '_blank', rel: 'noopener' } : {})}
                 >
@@ -33,9 +34,21 @@ const hrefFor = (href: string) => (href === 'whatsapp' ? waHref : href);
                 </a>
               ))}
             </div>
+            {s.note && <p class="note">{s.note}</p>}
           </div>
           <div class="visual">
             {s.image && <img src={s.image} alt={s.imageAlt ?? ''} width="380" class="hero-logo" />}
+            {s.badges && (
+              <div class="badges">
+                {s.badges.map((b, n) => (
+                  <div class:list={['badge', `badge-${n + 1}`]}>
+                    <strong>{b.big}</strong>
+                    <span>{b.small}</span>
+                    <small>{b.sub}</small>
+                  </div>
+                ))}
+              </div>
+            )}
             {s.products && (
               <div class="product-grid">
                 {s.products.map((src) => (
@@ -60,7 +73,7 @@ const hrefFor = (href: string) => (href === 'whatsapp' ? waHref : href);
 </section>
 
 <script>
-  const INTERVAL = 6000;
+  const INTERVAL = 4000; // milliseconds each slide stays on screen
   const root = document.querySelector<HTMLElement>('.hero-carousel')!;
   const track = root.querySelector<HTMLElement>('.track')!;
   const slides = [...root.querySelectorAll<HTMLElement>('.slide')];
@@ -121,6 +134,32 @@ const hrefFor = (href: string) => (href === 'whatsapp' ? waHref : href);
   .slide-2 .gradient-text { background: linear-gradient(90deg, #ffb070, var(--amber)); -webkit-background-clip: text; background-clip: text; }
   .slide-2 .eyebrow { color: var(--amber); }
   .slide-2 .btn-outline { color: #fff; }
+  .slide-3 { background: linear-gradient(120deg, #fff4e8 0%, #ffe2c7 60%, #ffc995 100%); }
+  .note { font-size: .85rem; color: var(--muted); margin: 14px 0 0; }
+
+  .badges { position: relative; height: 340px; max-width: 420px; margin: 0 auto; }
+  .badge {
+    position: absolute; border-radius: 50%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; color: #fff; box-shadow: 0 16px 40px rgba(143, 10, 15, .3);
+  }
+  .badge strong { font-family: 'Barlow Condensed', 'Inter', sans-serif; line-height: 1; }
+  .badge span { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .badge small { opacity: .92; }
+  .badge-1 {
+    width: 260px; height: 260px; left: 0; top: 0;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    border: 8px solid rgba(255, 255, 255, .6);
+  }
+  .badge-1 strong { font-size: 4.4rem; }
+  .badge-1 span { font-size: 1rem; margin-top: 6px; }
+  .badge-1 small { font-size: .9rem; max-width: 170px; margin-top: 4px; }
+  .badge-2 {
+    width: 170px; height: 170px; right: 0; bottom: 0; background: var(--ink);
+    border: 6px dashed var(--amber); transform: rotate(-8deg);
+  }
+  .badge-2 strong { font-size: 2.6rem; color: var(--amber); }
+  .badge-2 span { font-size: .85rem; margin-top: 4px; }
+  .badge-2 small { font-size: .85rem; }
 
   .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
   .title { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: .5px; }
@@ -158,6 +197,14 @@ const hrefFor = (href: string) => (href === 'whatsapp' ? waHref : href);
     .visual { order: -1; }
     .hero-logo { max-width: 200px; }
     .product-grid { max-width: 300px; gap: 10px; }
+    .badges { height: 230px; max-width: 300px; }
+    .badge-1 { width: 180px; height: 180px; border-width: 6px; }
+    .badge-1 strong { font-size: 3rem; }
+    .badge-1 span { font-size: .8rem; }
+    .badge-1 small { font-size: .72rem; max-width: 120px; }
+    .badge-2 { width: 120px; height: 120px; border-width: 4px; }
+    .badge-2 strong { font-size: 1.8rem; }
+    .badge-2 span, .badge-2 small { font-size: .66rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     .track, .slide .hero-grid > div { transition: none; }
