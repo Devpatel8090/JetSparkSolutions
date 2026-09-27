@@ -8,11 +8,61 @@
     "phone": "+91 81414 19996",
     "whatsapp": "918141419996",
     "email": "jetsparksolutions@gmail.com",
-    "address": "TODO: Office address, City, State, PIN",
+    "address": "G-504, Shivalik Park View-2",
     "hours": "Mon – Sat, 9:00 AM – 7:00 PM",
     "mapEmbedUrl": ""
   },
+  "heroSlides": [
+    {
+      "eyebrow": "Fire Safety Experts",
+      "title": "Protecting people",
+      "highlight": "and property from fire",
+      "text": "JetSpark Solutions provides fire safety equipment, installation, inspection and maintenance for homes, offices, shops and industries.",
+      "buttons": [
+        {
+          "label": "Get a Free Quote",
+          "href": "/contact",
+          "style": "primary"
+        },
+        {
+          "label": "Our Services",
+          "href": "/services",
+          "style": "outline"
+        }
+      ],
+      "image": "/logo.png",
+      "imageAlt": "JetSpark Solutions logo"
+    },
+    {
+      "eyebrow": "🔥 New · Now selling online",
+      "title": "Fire safety products,",
+      "highlight": "order online today",
+      "text": "Fire extinguishers, alarm parts, hydrant fittings and safety accessories – delivered to your door. Pay on delivery or by UPI.",
+      "buttons": [
+        {
+          "label": "🛒 Shop Now",
+          "href": "/shop",
+          "style": "primary"
+        },
+        {
+          "label": "💬 Order on WhatsApp",
+          "href": "whatsapp",
+          "style": "outline"
+        }
+      ],
+      "products": [
+        "/products/ext-abc.svg",
+        "/products/fire-ball.svg",
+        "/products/smoke-detector.svg",
+        "/products/fire-blanket.svg"
+      ]
+    }
+  ],
   "stats": [
+    {
+      "value": "20+",
+      "label": "Happy customers"
+    },
     {
       "value": "24/7",
       "label": "Emergency support"
@@ -20,10 +70,6 @@
     {
       "value": "100%",
       "label": "Standards-compliant work"
-    },
-    {
-      "value": "TODO",
-      "label": "Projects completed"
     }
   ],
   "services": [
@@ -126,6 +172,7 @@
       "name": "B-Ethics Group"
     }
   ],
+  "clientsIntro": "20+ happy customers, including",
   "about": {
     "heading": "About JetSpark Solutions",
     "paragraphs": [

@@ -14,7 +14,8 @@ Almost everything is in **one file: [`src/data/site.json`](src/data/site.json)**
 | Industries served | `industries` |
 | About page text | `about` |
 | Numbers bar (24/7, projects, ...) | `stats` |
-| Satisfied customers | `clients` |
+| Satisfied customers | `clients`, `clientsIntro` |
+| Home page carousel slides | `heroSlides` (a button `href` of `"whatsapp"` opens a WhatsApp chat) |
 
 **Easiest way (no software needed):** open `src/data/site.json` on GitHub → click the ✏️ pencil → edit → **Commit changes**. The live site updates on its own in about 1 minute.
 
@@ -30,7 +31,7 @@ Products live in **[`src/data/products.json`](src/data/products.json)**. Each pr
 - `name`, `description`, `specs` – text shown on the product page
 - `price` – in ₹ (whole rupees). Use `null` to show "Ask for price"
 - `category` – one of the ids in `categories`
-- `image` – upload a photo to `public/products/` and set e.g. `"/products/abc-2kg.jpg"` (leave `""` to show an icon)
+- `image` – currently a drawn illustration from `public/products/`. To use a real photo, upload it there and set e.g. `"/products/abc-2kg.jpg"` (leave `""` to show an icon)
 - `inStock` – `false` hides the Add to cart button
 - `id` – the product page address (`/shop/<id>`); use lowercase-with-dashes and keep it unique
 

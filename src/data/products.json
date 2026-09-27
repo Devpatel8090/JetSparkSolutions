@@ -1,72 +1,348 @@
 {
-  "_note": "Shop catalogue. Prices are in ₹ (whole rupees). Set \"price\" to null to show 'Ask for price'. To add a photo, put it in public/products/ and set \"image\": \"/products/your-photo.jpg\". Set \"inStock\": false to hide the Add to cart button. TODO: replace the sample prices with Jay's real prices.",
+  "_note": "Shop catalogue. Prices are in ₹ (whole rupees). Set \"price\" to null to show 'Ask for price'. Images are illustrations in public/products/ – to use a real photo, upload it there and set \"image\": \"/products/your-photo.jpg\". Set \"inStock\": false to hide the Add to cart button. TODO: replace the sample prices with Jay's real prices.",
   "categories": [
-    { "id": "extinguishers", "name": "Fire Extinguishers", "icon": "🧯" },
-    { "id": "alarm", "name": "Fire Alarm & Detection", "icon": "🚨" },
-    { "id": "hydrant", "name": "Hydrant & Sprinkler", "icon": "💧" },
-    { "id": "accessories", "name": "Safety Accessories", "icon": "🦺" }
+    {
+      "id": "extinguishers",
+      "name": "Fire Extinguishers",
+      "icon": "🧯"
+    },
+    {
+      "id": "alarm",
+      "name": "Fire Alarm & Detection",
+      "icon": "🚨"
+    },
+    {
+      "id": "hydrant",
+      "name": "Hydrant & Sprinkler",
+      "icon": "💧"
+    },
+    {
+      "id": "accessories",
+      "name": "Safety Accessories",
+      "icon": "🦺"
+    }
   ],
   "products": [
-    { "id": "abc-extinguisher-1kg", "name": "ABC Powder Fire Extinguisher – 1 kg", "category": "extinguishers", "price": 900, "unit": "piece", "image": "", "inStock": true,
+    {
+      "id": "abc-extinguisher-1kg",
+      "name": "ABC Powder Fire Extinguisher – 1 kg",
+      "category": "extinguishers",
+      "price": 900,
+      "unit": "piece",
+      "image": "/products/ext-abc.svg",
+      "inStock": true,
       "description": "Compact multi-purpose extinguisher for cars, kitchens and small offices. Works on Class A, B and C fires.",
-      "specs": ["Capacity: 1 kg", "Type: Stored pressure", "Fire classes: A, B, C", "Wall bracket included"] },
-    { "id": "abc-extinguisher-2kg", "name": "ABC Powder Fire Extinguisher – 2 kg", "category": "extinguishers", "price": 1400, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Capacity: 1 kg",
+        "Type: Stored pressure",
+        "Fire classes: A, B, C",
+        "Wall bracket included"
+      ]
+    },
+    {
+      "id": "abc-extinguisher-2kg",
+      "name": "ABC Powder Fire Extinguisher – 2 kg",
+      "category": "extinguishers",
+      "price": 1400,
+      "unit": "piece",
+      "image": "/products/ext-abc.svg",
+      "inStock": true,
       "description": "Popular choice for homes, shops and offices.",
-      "specs": ["Capacity: 2 kg", "Type: Stored pressure", "Fire classes: A, B, C", "Wall bracket included"] },
-    { "id": "abc-extinguisher-4kg", "name": "ABC Powder Fire Extinguisher – 4 kg", "category": "extinguishers", "price": 2200, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Capacity: 2 kg",
+        "Type: Stored pressure",
+        "Fire classes: A, B, C",
+        "Wall bracket included"
+      ]
+    },
+    {
+      "id": "abc-extinguisher-4kg",
+      "name": "ABC Powder Fire Extinguisher – 4 kg",
+      "category": "extinguishers",
+      "price": 2200,
+      "unit": "piece",
+      "image": "/products/ext-abc.svg",
+      "inStock": true,
       "description": "Mid-size extinguisher for offices, schools and societies.",
-      "specs": ["Capacity: 4 kg", "Type: Stored pressure", "Fire classes: A, B, C", "Wall bracket included"] },
-    { "id": "abc-extinguisher-6kg", "name": "ABC Powder Fire Extinguisher – 6 kg", "category": "extinguishers", "price": 2800, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Capacity: 4 kg",
+        "Type: Stored pressure",
+        "Fire classes: A, B, C",
+        "Wall bracket included"
+      ]
+    },
+    {
+      "id": "abc-extinguisher-6kg",
+      "name": "ABC Powder Fire Extinguisher – 6 kg",
+      "category": "extinguishers",
+      "price": 2800,
+      "unit": "piece",
+      "image": "/products/ext-abc.svg",
+      "inStock": true,
       "description": "Recommended for commercial buildings, warehouses and factories.",
-      "specs": ["Capacity: 6 kg", "Type: Stored pressure", "Fire classes: A, B, C", "Wall bracket included"] },
-    { "id": "co2-extinguisher-4-5kg", "name": "CO₂ Fire Extinguisher – 4.5 kg", "category": "extinguishers", "price": 7500, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Capacity: 6 kg",
+        "Type: Stored pressure",
+        "Fire classes: A, B, C",
+        "Wall bracket included"
+      ]
+    },
+    {
+      "id": "co2-extinguisher-4-5kg",
+      "name": "CO₂ Fire Extinguisher – 4.5 kg",
+      "category": "extinguishers",
+      "price": 7500,
+      "unit": "piece",
+      "image": "/products/ext-co2.svg",
+      "inStock": true,
       "description": "Leaves no residue – ideal for electrical panels, server rooms and labs.",
-      "specs": ["Capacity: 4.5 kg", "Fire classes: B, C & electrical", "Horn discharge", "Wall bracket included"] },
-    { "id": "foam-extinguisher-9l", "name": "Mechanical Foam Extinguisher – 9 L", "category": "extinguishers", "price": 3500, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Capacity: 4.5 kg",
+        "Fire classes: B, C & electrical",
+        "Horn discharge",
+        "Wall bracket included"
+      ]
+    },
+    {
+      "id": "foam-extinguisher-9l",
+      "name": "Mechanical Foam Extinguisher – 9 L",
+      "category": "extinguishers",
+      "price": 3500,
+      "unit": "piece",
+      "image": "/products/ext-foam.svg",
+      "inStock": true,
       "description": "For flammable liquid fires in fuel stations, kitchens and workshops.",
-      "specs": ["Capacity: 9 litres", "Fire classes: A, B", "Stored pressure"] },
-    { "id": "fire-ball", "name": "Automatic Fire Extinguisher Ball", "category": "extinguishers", "price": 1200, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Capacity: 9 litres",
+        "Fire classes: A, B",
+        "Stored pressure"
+      ]
+    },
+    {
+      "id": "fire-ball",
+      "name": "Automatic Fire Extinguisher Ball",
+      "category": "extinguishers",
+      "price": 1200,
+      "unit": "piece",
+      "image": "/products/fire-ball.svg",
+      "inStock": true,
       "description": "Self-activating ball that bursts on contact with flame. Great for electrical boards and small rooms.",
-      "specs": ["Weight: approx. 1.3 kg", "Activates in 3–5 seconds", "Maintenance-free"] },
-
-    { "id": "smoke-detector", "name": "Optical Smoke Detector", "category": "alarm", "price": 650, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Weight: approx. 1.3 kg",
+        "Activates in 3–5 seconds",
+        "Maintenance-free"
+      ]
+    },
+    {
+      "id": "smoke-detector",
+      "name": "Optical Smoke Detector",
+      "category": "alarm",
+      "price": 650,
+      "unit": "piece",
+      "image": "/products/smoke-detector.svg",
+      "inStock": true,
       "description": "Conventional smoke detector with base for fire alarm systems.",
-      "specs": ["Type: Photoelectric", "Voltage: 24 V DC", "LED indicator"] },
-    { "id": "heat-detector", "name": "Heat Detector", "category": "alarm", "price": 600, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Type: Photoelectric",
+        "Voltage: 24 V DC",
+        "LED indicator"
+      ]
+    },
+    {
+      "id": "heat-detector",
+      "name": "Heat Detector",
+      "category": "alarm",
+      "price": 600,
+      "unit": "piece",
+      "image": "/products/heat-detector.svg",
+      "inStock": true,
       "description": "Rate-of-rise heat detector for kitchens and dusty areas.",
-      "specs": ["Type: Rate-of-rise + fixed temp", "Voltage: 24 V DC"] },
-    { "id": "manual-call-point", "name": "Manual Call Point", "category": "alarm", "price": 700, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Type: Rate-of-rise + fixed temp",
+        "Voltage: 24 V DC"
+      ]
+    },
+    {
+      "id": "manual-call-point",
+      "name": "Manual Call Point",
+      "category": "alarm",
+      "price": 700,
+      "unit": "piece",
+      "image": "/products/call-point.svg",
+      "inStock": true,
       "description": "Break-glass / resettable call point to raise the alarm manually.",
-      "specs": ["Resettable", "Surface mount", "Red ABS body"] },
-    { "id": "hooter", "name": "Fire Alarm Hooter", "category": "alarm", "price": 900, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Resettable",
+        "Surface mount",
+        "Red ABS body"
+      ]
+    },
+    {
+      "id": "hooter",
+      "name": "Fire Alarm Hooter",
+      "category": "alarm",
+      "price": 900,
+      "unit": "piece",
+      "image": "/products/hooter.svg",
+      "inStock": true,
       "description": "Loud electronic sounder for fire alarm systems.",
-      "specs": ["Output: 100+ dB", "Voltage: 24 V DC"] },
-    { "id": "alarm-panel-4-zone", "name": "Fire Alarm Control Panel – 4 Zone", "category": "alarm", "price": 9500, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Output: 100+ dB",
+        "Voltage: 24 V DC"
+      ]
+    },
+    {
+      "id": "alarm-panel-4-zone",
+      "name": "Fire Alarm Control Panel – 4 Zone",
+      "category": "alarm",
+      "price": 9500,
+      "unit": "piece",
+      "image": "/products/alarm-panel.svg",
+      "inStock": true,
       "description": "Conventional control panel with battery backup.",
-      "specs": ["Zones: 4", "Battery backup", "Fault & fire indication"] },
-
-    { "id": "hose-reel-drum", "name": "Hose Reel Drum with 30 m Hose", "category": "hydrant", "price": 6500, "unit": "set", "image": "", "inStock": true,
+      "specs": [
+        "Zones: 4",
+        "Battery backup",
+        "Fault & fire indication"
+      ]
+    },
+    {
+      "id": "hose-reel-drum",
+      "name": "Hose Reel Drum with 30 m Hose",
+      "category": "hydrant",
+      "price": 6500,
+      "unit": "set",
+      "image": "/products/hose-reel.svg",
+      "inStock": true,
       "description": "Swinging-type hose reel drum with hose and shut-off nozzle.",
-      "specs": ["Hose length: 30 m", "Hose size: 19 mm", "Includes nozzle"] },
-    { "id": "rrl-hose-15m", "name": "RRL Fire Hose Pipe – 15 m", "category": "hydrant", "price": 3200, "unit": "piece", "image": "", "inStock": true,
+      "specs": [
+        "Hose length: 30 m",
+        "Hose size: 19 mm",
+        "Includes nozzle"
+      ]
+    },
+    {
+      "id": "rrl-hose-15m",
+      "name": "RRL Fire Hose Pipe – 15 m",
+      "category": "hydrant",
+      "price": 3200,
+      "unit": "piece",
+      "image": "/products/rrl-hose.svg",
+      "inStock": true,
       "description": "Reinforced rubber-lined hose with couplings for hydrant systems.",
-      "specs": ["Length: 15 m", "Size: 63 mm", "Couplings fitted"] },
-    { "id": "branch-pipe", "name": "Branch Pipe with Nozzle", "category": "hydrant", "price": 1100, "unit": "piece", "image": "", "inStock": true,
-      "description": "Gunmetal/SS branch pipe for fire hoses.", "specs": ["Size: 63 mm inlet"] },
-    { "id": "landing-valve", "name": "Single Headed Landing Valve", "category": "hydrant", "price": 4500, "unit": "piece", "image": "", "inStock": true,
-      "description": "Hydrant landing valve for internal and external hydrant points.", "specs": ["Size: 63 mm", "With blank cap"] },
-    { "id": "sprinkler-head", "name": "Sprinkler Head (Pendent, 68 °C)", "category": "hydrant", "price": 250, "unit": "piece", "image": "", "inStock": true,
-      "description": "Standard response glass-bulb sprinkler.", "specs": ["Temp rating: 68 °C", "Thread: 15 mm"] },
-
-    { "id": "fire-bucket-stand", "name": "Fire Bucket Set with Stand (4 Buckets)", "category": "accessories", "price": 3500, "unit": "set", "image": "", "inStock": true,
-      "description": "Four red sand buckets on a powder-coated stand.", "specs": ["4 buckets", "Stand included"] },
-    { "id": "fire-blanket", "name": "Fire Blanket", "category": "accessories", "price": 1500, "unit": "piece", "image": "", "inStock": true,
-      "description": "Fibreglass blanket for smothering kitchen and clothing fires.", "specs": ["Size: 1.2 m × 1.2 m", "Quick-release pouch"] },
-    { "id": "extinguisher-stand", "name": "Fire Extinguisher Floor Stand", "category": "accessories", "price": 800, "unit": "piece", "image": "", "inStock": true,
-      "description": "Sturdy stand to keep extinguishers visible and off the floor.", "specs": ["Fits 2–9 kg extinguishers"] },
-    { "id": "safety-signage", "name": "Glow-in-the-Dark Safety Sign", "category": "accessories", "price": 150, "unit": "piece", "image": "", "inStock": true,
-      "description": "Photoluminescent signs – Fire Exit, Extinguisher, Assembly Point and more.", "specs": ["Mention the sign type in your order"] },
-    { "id": "custom-requirement", "name": "Bulk / Custom Requirement", "category": "accessories", "price": null, "unit": "order", "image": "", "inStock": true,
-      "description": "Need a large quantity or something not listed? Add this and describe it at checkout.", "specs": ["Special pricing for bulk orders"] }
+      "specs": [
+        "Length: 15 m",
+        "Size: 63 mm",
+        "Couplings fitted"
+      ]
+    },
+    {
+      "id": "branch-pipe",
+      "name": "Branch Pipe with Nozzle",
+      "category": "hydrant",
+      "price": 1100,
+      "unit": "piece",
+      "image": "/products/branch-pipe.svg",
+      "inStock": true,
+      "description": "Gunmetal/SS branch pipe for fire hoses.",
+      "specs": [
+        "Size: 63 mm inlet"
+      ]
+    },
+    {
+      "id": "landing-valve",
+      "name": "Single Headed Landing Valve",
+      "category": "hydrant",
+      "price": 4500,
+      "unit": "piece",
+      "image": "/products/landing-valve.svg",
+      "inStock": true,
+      "description": "Hydrant landing valve for internal and external hydrant points.",
+      "specs": [
+        "Size: 63 mm",
+        "With blank cap"
+      ]
+    },
+    {
+      "id": "sprinkler-head",
+      "name": "Sprinkler Head (Pendent, 68 °C)",
+      "category": "hydrant",
+      "price": 250,
+      "unit": "piece",
+      "image": "/products/sprinkler.svg",
+      "inStock": true,
+      "description": "Standard response glass-bulb sprinkler.",
+      "specs": [
+        "Temp rating: 68 °C",
+        "Thread: 15 mm"
+      ]
+    },
+    {
+      "id": "fire-bucket-stand",
+      "name": "Fire Bucket Set with Stand (4 Buckets)",
+      "category": "accessories",
+      "price": 3500,
+      "unit": "set",
+      "image": "/products/fire-bucket.svg",
+      "inStock": true,
+      "description": "Four red sand buckets on a powder-coated stand.",
+      "specs": [
+        "4 buckets",
+        "Stand included"
+      ]
+    },
+    {
+      "id": "fire-blanket",
+      "name": "Fire Blanket",
+      "category": "accessories",
+      "price": 1500,
+      "unit": "piece",
+      "image": "/products/fire-blanket.svg",
+      "inStock": true,
+      "description": "Fibreglass blanket for smothering kitchen and clothing fires.",
+      "specs": [
+        "Size: 1.2 m × 1.2 m",
+        "Quick-release pouch"
+      ]
+    },
+    {
+      "id": "extinguisher-stand",
+      "name": "Fire Extinguisher Floor Stand",
+      "category": "accessories",
+      "price": 800,
+      "unit": "piece",
+      "image": "/products/ext-stand.svg",
+      "inStock": true,
+      "description": "Sturdy stand to keep extinguishers visible and off the floor.",
+      "specs": [
+        "Fits 2–9 kg extinguishers"
+      ]
+    },
+    {
+      "id": "safety-signage",
+      "name": "Glow-in-the-Dark Safety Sign",
+      "category": "accessories",
+      "price": 150,
+      "unit": "piece",
+      "image": "/products/sign.svg",
+      "inStock": true,
+      "description": "Photoluminescent signs – Fire Exit, Extinguisher, Assembly Point and more.",
+      "specs": [
+        "Mention the sign type in your order"
+      ]
+    },
+    {
+      "id": "custom-requirement",
+      "name": "Bulk / Custom Requirement",
+      "category": "accessories",
+      "price": null,
+      "unit": "order",
+      "image": "/products/bulk.svg",
+      "inStock": true,
+      "description": "Need a large quantity or something not listed? Add this and describe it at checkout.",
+      "specs": [
+        "Special pricing for bulk orders"
+      ]
+    }
   ]
 }
