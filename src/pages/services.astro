@@ -1,4 +1,5 @@
 ---
+import PageHero from '../components/PageHero.astro';
 import Base from '../layouts/Base.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CtaBanner from '../components/CtaBanner.astro';
@@ -6,16 +7,11 @@ import site from '../data/site.json';
 ---
 
 <Base title="Services" description={`Fire safety services by ${site.name}: ${site.services.map((s) => s.title).join(', ')}.`}>
-  <section class="page-hero">
-    <div class="container">
-      <h1>Our Services</h1>
-      <p>Supply, installation, maintenance and compliance — handled by one trusted team.</p>
-    </div>
-  </section>
+  <PageHero eyebrow="Our Services" title="Complete Fire Protection" highlight="Solutions" text="Design, installation, maintenance, AMC, NOC and training — handled by one trusted, BIS certified & GeM registered team." />
 
   <section class="section">
     <div class="container grid grid-3">
-      {site.services.map((s) => <ServiceCard service={s} detailed />)}
+      {site.services.map((s) => <ServiceCard service={s} />)}
     </div>
   </section>
 

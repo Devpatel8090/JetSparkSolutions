@@ -1,0 +1,64 @@
+---
+// Decorative fire backdrop: warm glow + rising embers. Place inside an element with class "fire-section".
+interface Props {
+  embers?: number;
+  glow?: 'right' | 'center' | 'bottom';
+}
+const { embers = 28, glow = 'right' } = Astro.props;
+
+// Deterministic pseudo-random so the markup is stable between builds.
+let seed = 7;
+const rand = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+const sparks = Array.from({ length: embers }, () => ({
+  left: (rand() * 100).toFixed(1),
+  size: (2 + rand() * 4).toFixed(1),
+  delay: (-rand() * 14).toFixed(1),
+  duration: (8 + rand() * 10).toFixed(1),
+  drift: ((rand() - 0.5) * 120).toFixed(0),
+}));
+---
+
+<div class:list={['fire-bg', `glow-${glow}`]} aria-hidden="true">
+  <div class="glow"></div>
+  <div class="heat"></div>
+  {sparks.map((s) => (
+    <span
+      class="ember"
+      style={`left:${s.left}%;width:${s.size}px;height:${s.size}px;animation-delay:${s.delay}s;animation-duration:${s.duration}s;--drift:${s.drift}px`}
+    ></span>
+  ))}
+</div>
+
+<style>
+  .fire-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+    background: radial-gradient(ellipse at 20% 0%, #2a1a14 0%, transparent 55%), linear-gradient(180deg, #121010, #0e0d0d 60%, #160c0a);
+  }
+  .glow { position: absolute; border-radius: 50%; filter: blur(40px); animation: breathe 6s ease-in-out infinite; }
+  .glow-right .glow { width: 780px; height: 780px; right: -140px; top: 50%; transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(214, 43, 31, .45) 0%, rgba(214, 43, 31, .15) 40%, transparent 70%); }
+  .glow-center .glow { width: 900px; height: 520px; left: 50%; top: 40%; transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(214, 43, 31, .32) 0%, transparent 70%); }
+  .glow-bottom .glow { width: 1200px; height: 500px; left: 50%; bottom: -320px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(240, 122, 34, .45) 0%, rgba(214, 43, 31, .2) 40%, transparent 70%); }
+  .heat { position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
+    background: linear-gradient(0deg, rgba(240, 90, 30, .12), transparent); }
+  .ember {
+    position: absolute; bottom: -10px; border-radius: 50%;
+    background: radial-gradient(circle, #ffd27a 0%, #f5871f 55%, rgba(214, 43, 31, 0) 75%);
+    box-shadow: 0 0 8px 2px rgba(245, 135, 31, .6);
+    animation-name: rise; animation-timing-function: linear; animation-iteration-count: infinite; opacity: 0;
+  }
+  @keyframes rise {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    10% { opacity: .9; }
+    70% { opacity: .6; }
+    100% { transform: translate(var(--drift), -110vh) scale(.3); opacity: 0; }
+  }
+  @keyframes breathe { 50% { opacity: .75; } }
+  .glow-right .glow { animation-name: breathe-r; }
+  @keyframes breathe-r { 50% { opacity: .7; transform: translateY(-50%) scale(1.05); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ember { display: none; }
+    .glow { animation: none; }
+  }
+</style>
