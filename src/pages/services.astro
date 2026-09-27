@@ -9,13 +9,13 @@ import site from '../data/site.json';
   <section class="page-hero">
     <div class="container">
       <h1>Our Services</h1>
-      <p>Supply, installation, maintenance and compliance — handled by one trusted team.</p>
+      <p>Design, installation, maintenance, AMC, NOC and training — handled by one BIS certified & GeM registered team.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container grid grid-3">
-      {site.services.map((s) => <ServiceCard service={s} detailed />)}
+      {site.services.map((s) => <ServiceCard service={s} />)}
     </div>
   </section>
 

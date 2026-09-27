@@ -21,7 +21,7 @@ const hrefFor = (href: string, waText?: string) =>
         <div class="container hero-grid">
           <div>
             <span class="eyebrow">{s.eyebrow}</span>
-            <Heading class="title">{s.title}{' '}<span class="gradient-text">{s.highlight}</span></Heading>
+            <Heading class="title">{s.title}{' '}<span class="gradient-text">{s.highlight}</span>{s.titleEnd && <>{' '}{s.titleEnd}</>}</Heading>
             <p class="lead">{s.text}</p>
             <div class="actions">
               {s.buttons.map((b) => (
@@ -35,6 +35,13 @@ const hrefFor = (href: string, waText?: string) =>
               ))}
             </div>
             {s.note && <p class="note">{s.note}</p>}
+            {s.showCertifications && (
+              <ul class="certs">
+                {site.certifications.map((c) => (
+                  <li><span aria-hidden="true">{c.icon}</span><strong>{c.title}</strong><small>{c.sub}</small></li>
+                ))}
+              </ul>
+            )}
           </div>
           <div class="visual">
             {s.image && <img src={s.image} alt={s.imageAlt ?? ''} width="380" class="hero-logo" />}
@@ -135,6 +142,14 @@ const hrefFor = (href: string, waText?: string) =>
   .slide-2 .eyebrow { color: var(--amber); }
   .slide-2 .btn-outline { color: #fff; }
   .slide-3 { background: linear-gradient(120deg, #fff4e8 0%, #ffe2c7 60%, #ffc995 100%); }
+  .certs { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .certs li {
+    display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: center; padding: 10px 16px;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+  }
+  .certs span { grid-row: span 2; font-size: 1.4rem; }
+  .certs strong { font-size: .92rem; line-height: 1.2; }
+  .certs small { color: var(--muted); font-size: .8rem; line-height: 1.2; }
   .note { font-size: .85rem; color: var(--muted); margin: 14px 0 0; }
 
   .badges { position: relative; height: 340px; max-width: 420px; margin: 0 auto; }

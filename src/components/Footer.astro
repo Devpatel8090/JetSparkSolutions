@@ -9,6 +9,7 @@ const year = new Date().getFullYear();
     <div>
       <img src="/logo.png" alt={site.name} width="120" class="logo" />
       <p>{site.description}</p>
+      <div class="certs">{site.certifications.slice(0, 2).map((c) => <span>{c.icon} {c.title}</span>)}</div>
     </div>
     <div>
       <h3>Quick links</h3>
@@ -27,10 +28,11 @@ const year = new Date().getFullYear();
         <li>✉️ <a href={`mailto:${contact.email}`}>{contact.email}</a></li>
         <li>📍 {contact.address}</li>
         <li>🕘 {contact.hours}</li>
+        <li>🧾 GSTIN: <strong>{contact.gst}</strong></li>
       </ul>
     </div>
   </div>
-  <div class="container copy">© {year} {site.name}. All rights reserved.</div>
+  <div class="container copy">© {year} {site.name}. All rights reserved. · GSTIN {contact.gst}</div>
 </footer>
 
 <style>
@@ -38,6 +40,9 @@ const year = new Date().getFullYear();
   .cols { display: grid; gap: 32px; grid-template-columns: 1.4fr 1fr 1.4fr; }
   .logo { background: #fff; border-radius: 12px; padding: 8px; margin-bottom: 16px; }
   h3 { color: #fff; }
+  .certs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .certs span { padding: 5px 12px; border-radius: 999px; border: 1px solid #4a4f55; color: #f3a466; font-size: .85rem; font-weight: 600; }
+  strong { color: #fff; }
   ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
   a { color: #f3a466; text-decoration: none; }
   a:hover { text-decoration: underline; }

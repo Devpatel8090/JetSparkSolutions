@@ -21,6 +21,8 @@ const { contact } = site;
         <p>✉️ <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
         <p>📍 {contact.address}</p>
         <p>🕘 {contact.hours}</p>
+        <p>🧾 GSTIN: <strong>{contact.gst}</strong></p>
+        <div class="certs">{site.certifications.slice(0, 2).map((c) => <span>{c.icon} {c.title}</span>)}</div>
         {contact.mapEmbedUrl && (
           <iframe src={contact.mapEmbedUrl} title="Office location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         )}
@@ -39,6 +41,7 @@ const { contact } = site;
             <option value="">Select a service</option>
             {site.services.map((s) => <option>{s.title}</option>)}
             <option>Buy products</option>
+            <option>2-year AMC offer (3rd year free)</option>
             <option>Other</option>
           </select>
         </label>
@@ -52,6 +55,8 @@ const { contact } = site;
 <style>
   .contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; align-items: start; }
   .info p { color: var(--ink); }
+  .certs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .certs span { padding: 6px 12px; border-radius: 999px; background: #fff4e8; color: #b0470c; font-weight: 600; font-size: .88rem; }
   iframe { width: 100%; height: 240px; border: 0; border-radius: 10px; margin-top: 8px; }
   form { display: grid; gap: 14px; }
   label { display: grid; gap: 6px; font-weight: 500; }

@@ -1,0 +1,27 @@
+---
+import site from '../data/site.json';
+---
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`}><span>📞</span>Call</a>
+  <a href={`https://wa.me/${site.contact.whatsapp}`} target="_blank" rel="noopener"><span>💬</span>WhatsApp</a>
+  <a href="/shop"><span>🛒</span>Shop</a>
+  <a href="/contact" class="quote"><span>📝</span>Get Quote</a>
+</nav>
+
+<style>
+  .action-bar { display: none; }
+  @media (max-width: 820px) {
+    .action-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+      background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .action-bar a {
+      display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 0 9px;
+      color: var(--ink); text-decoration: none; font-size: .74rem; font-weight: 600;
+    }
+    .action-bar span { font-size: 1.2rem; }
+    .action-bar .quote { background: var(--grad); color: #fff; }
+  }
+</style>

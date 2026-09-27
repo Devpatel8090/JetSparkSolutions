@@ -5,11 +5,12 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/shop', label: 'Shop' },
+  { href: '/#industries', label: 'Industries' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isActive = (href: string) => (href === '/' ? path === '/' : !href.includes('#') && path.startsWith(href));
 ---
 
 <header class="site-header">
