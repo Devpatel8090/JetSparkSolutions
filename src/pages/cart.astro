@@ -1,0 +1,176 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base title="Your Cart">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Your Cart</h1>
+      <p>Review your items, add your details and place the order. No online payment needed – pay on delivery or by UPI.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div id="empty" class="card empty" hidden>
+        <p>Your cart is empty.</p>
+        <a href="/shop" class="btn btn-primary">Browse products</a>
+      </div>
+
+      <div id="cart-wrap" class="layout" hidden>
+        <div class="card">
+          <h2>Items</h2>
+          <ul id="cart-items" class="items"></ul>
+          <div class="total"><span>Estimated total</span><strong id="cart-total"></strong></div>
+          <p class="small" id="ask-note" hidden>Items marked “Ask for price” will be quoted when we confirm your order.</p>
+        </div>
+
+        <form id="order-form" class="card" name="order" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="order" />
+          <p hidden><label>Leave empty <input name="company-website" /></label></p>
+          <textarea name="order-items" id="order-items" hidden></textarea>
+          <input type="hidden" name="order-total" id="order-total" />
+          <h2>Delivery details</h2>
+          <label>Full name<input name="name" required autocomplete="name" /></label>
+          <label>Phone / WhatsApp<input name="phone" type="tel" required autocomplete="tel" pattern="[0-9+\s\-]{10,15}" /></label>
+          <label>Email (optional)<input name="email" type="email" autocomplete="email" /></label>
+          <label>Delivery address<textarea name="address" rows="3" required autocomplete="street-address"></textarea></label>
+          <label>GST number (optional, for business invoice)<input name="gst" /></label>
+          <label>Payment method
+            <select name="payment" id="payment">
+              <option>Cash on delivery</option>
+              <option>UPI / Bank transfer (we'll send details)</option>
+            </select>
+          </label>
+          <label>Notes (optional)<textarea name="notes" rows="2" placeholder="Sign type, preferred delivery time, installation needed, etc."></textarea></label>
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Place Order</button>
+            <button type="button" id="wa-order" class="btn wa-btn">💬 Order on WhatsApp</button>
+          </div>
+          <p class="small">We'll call or WhatsApp you to confirm stock, final price and delivery before dispatch.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script define:vars={{ whatsapp: site.contact.whatsapp, bizName: site.name }}>
+  window.__shop = { whatsapp, bizName };
+</script>
+
+<script>
+  import { getCart, setQty, clearCart, formatINR, type CartItem } from '../scripts/cart';
+
+  const { whatsapp, bizName } = (window as any).__shop as { whatsapp: string; bizName: string };
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const form = $<HTMLFormElement>('order-form');
+
+  function priceText(i: CartItem) {
+    return i.price != null ? formatINR(i.price * i.qty) : 'Ask for price';
+  }
+
+  function summary(items: CartItem[]) {
+    const lines = items.map((i) => `• ${i.name} × ${i.qty} – ${priceText(i)}`);
+    return lines.join('\n');
+  }
+
+  function total(items: CartItem[]) {
+    return items.reduce((s, i) => s + (i.price ?? 0) * i.qty, 0);
+  }
+
+  function render() {
+    const items = getCart();
+    $('empty').hidden = items.length > 0;
+    $('cart-wrap').hidden = items.length === 0;
+    const list = $('cart-items');
+    list.innerHTML = '';
+    for (const i of items) {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span class="name"></span>
+        <span class="qty">
+          <button type="button" data-d="-1" aria-label="Decrease">−</button>
+          <b></b>
+          <button type="button" data-d="1" aria-label="Increase">+</button>
+        </span>
+        <span class="line"></span>
+        <button type="button" class="rm" aria-label="Remove">✕</button>`;
+      li.querySelector('.name')!.textContent = i.name;
+      li.querySelector('b')!.textContent = String(i.qty);
+      li.querySelector('.line')!.textContent = priceText(i);
+      li.querySelectorAll<HTMLButtonElement>('[data-d]').forEach((b) =>
+        b.addEventListener('click', () => setQty(i.id, i.qty + Number(b.dataset.d))),
+      );
+      li.querySelector('.rm')!.addEventListener('click', () => setQty(i.id, 0));
+      list.appendChild(li);
+    }
+    $('cart-total').textContent = formatINR(total(items));
+    $('ask-note').hidden = !items.some((i) => i.price == null);
+  }
+
+  function fillHiddenFields() {
+    const items = getCart();
+    ($('order-items') as HTMLTextAreaElement).value = summary(items);
+    ($('order-total') as HTMLInputElement).value = formatINR(total(items));
+  }
+
+  form.addEventListener('submit', (e) => {
+    fillHiddenFields();
+    if (getCart().length === 0) {
+      e.preventDefault();
+      return;
+    }
+    // Order details are already copied into the form, so the cart can be emptied.
+    clearCart();
+  });
+
+  $('wa-order').addEventListener('click', () => {
+    if (!form.reportValidity()) return;
+    const items = getCart();
+    const f = new FormData(form);
+    const msg =
+      `Hi ${bizName}, I'd like to place an order:\n\n${summary(items)}\n\n` +
+      `Estimated total: ${formatINR(total(items))}\n\n` +
+      `Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nAddress: ${f.get('address')}\n` +
+      (f.get('gst') ? `GST: ${f.get('gst')}\n` : '') +
+      `Payment: ${f.get('payment')}\n` +
+      (f.get('notes') ? `Notes: ${f.get('notes')}` : '');
+    window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+  });
+
+  document.addEventListener('cart:change', render);
+  render();
+</script>
+
+<style>
+  .layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start; }
+  .empty { text-align: center; max-width: 480px; margin: 0 auto; }
+  .items { list-style: none; padding: 0; margin: 0; }
+  .items :global(li) {
+    display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .items :global(.name) { font-weight: 500; }
+  .items :global(.qty) { display: inline-flex; align-items: center; gap: 8px; }
+  .items :global(.qty button), .items :global(.rm) {
+    width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: #fff;
+    cursor: pointer; font-size: 1rem; color: var(--ink);
+  }
+  .items :global(.rm) { color: var(--muted); border: none; }
+  .items :global(.line) { font-weight: 600; min-width: 90px; text-align: right; }
+  .total { display: flex; justify-content: space-between; padding-top: 16px; font-size: 1.2rem; }
+  .total strong { color: var(--red); }
+  form { display: grid; gap: 14px; }
+  label { display: grid; gap: 6px; font-weight: 500; }
+  input, select, textarea { font: inherit; padding: 11px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--orange); border-color: transparent; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .wa-btn { background: #25d366; color: #fff; }
+  .small { font-size: .88rem; color: var(--muted); margin: 0; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .items :global(li) { grid-template-columns: 1fr auto; }
+    .items :global(.line) { text-align: left; }
+  }
+</style>

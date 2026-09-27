@@ -1,0 +1,38 @@
+---
+import ProductImage from './ProductImage.astro';
+import catalogue from '../data/products.json';
+
+interface Props {
+  product: (typeof catalogue.products)[number];
+}
+const { product: p } = Astro.props;
+const cat = catalogue.categories.find((c) => c.id === p.category);
+---
+
+<article class="card product" data-category={p.category}>
+  <a href={`/shop/${p.id}`} class="img-link"><ProductImage image={p.image} name={p.name} icon={cat?.icon ?? '🔥'} /></a>
+  <span class="cat">{cat?.name}</span>
+  <h3><a href={`/shop/${p.id}`}>{p.name}</a></h3>
+  <div class="row">
+    <strong class="price">{p.price != null ? `₹${p.price.toLocaleString('en-IN')}` : 'Ask for price'}</strong>
+    {p.inStock ? (
+      <button class="btn btn-primary add" data-add-to-cart data-id={p.id} data-name={p.name} data-price={p.price ?? ''}>
+        Add to cart
+      </button>
+    ) : (
+      <span class="oos">Out of stock</span>
+    )}
+  </div>
+</article>
+
+<style>
+  .product { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+  .cat { font-size: .78rem; color: var(--orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  h3 { font-family: 'Inter', sans-serif; font-size: 1.02rem; margin: 0; flex: 1; }
+  h3 a { color: var(--ink); text-decoration: none; }
+  h3 a:hover { color: var(--red); }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .price { font-size: 1.15rem; color: var(--red); }
+  .add { padding: 8px 14px; font-size: .9rem; }
+  .oos { color: var(--muted); font-size: .9rem; }
+</style>

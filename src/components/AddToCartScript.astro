@@ -1,0 +1,31 @@
+<div class="toast" id="cart-toast" role="status" aria-live="polite"></div>
+
+<script>
+  import { addToCart } from '../scripts/cart';
+
+  const toast = document.getElementById('cart-toast')!;
+  let timer: number | undefined;
+
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-add-to-cart]');
+    if (!btn) return;
+    const qtyInput = document.getElementById(btn.dataset.qtyInput || '') as HTMLInputElement | null;
+    const qty = Math.max(1, parseInt(qtyInput?.value || '1', 10) || 1);
+    const price = btn.dataset.price ? Number(btn.dataset.price) : null;
+    addToCart({ id: btn.dataset.id!, name: btn.dataset.name!, price }, qty);
+    toast.innerHTML = `✔ Added to cart · <a href="/cart">View cart</a>`;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = window.setTimeout(() => toast.classList.remove('show'), 3000);
+  });
+</script>
+
+<style>
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120px); z-index: 70;
+    background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 999px; transition: transform .25s;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25); white-space: nowrap;
+  }
+  .toast.show { transform: translate(-50%, 0); }
+  .toast :global(a) { color: var(--amber); font-weight: 600; }
+</style>

@@ -4,10 +4,12 @@ import site from '../data/site.json';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
+  { href: '/shop', label: 'Shop' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 
 <header class="site-header">
@@ -20,12 +22,26 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
     <nav>
       {links.map((l) => (
-        <a href={l.href} class={path === l.href ? 'active' : ''}>{l.label}</a>
+        <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a>
       ))}
+      <a href="/cart" class="cart-link" aria-label="Cart">🛒 <span class="badge" id="cart-count" hidden>0</span></a>
       <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="btn btn-primary call">📞 Call Now</a>
     </nav>
   </div>
 </header>
+
+<script>
+  import { cartCount } from '../scripts/cart';
+  const badge = document.getElementById('cart-count')!;
+  const update = () => {
+    const n = cartCount();
+    badge.textContent = String(n);
+    badge.hidden = n === 0;
+  };
+  document.addEventListener('cart:change', update);
+  window.addEventListener('storage', update);
+  update();
+</script>
 
 <style>
   .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
@@ -40,6 +56,12 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   nav a:not(.btn) { color: var(--ink); text-decoration: none; font-weight: 500; }
   nav a.active, nav a:not(.btn):hover { color: var(--red); }
   .call { padding: 9px 18px; }
+  .cart-link { position: relative; font-size: 1.35rem; }
+  .badge {
+    position: absolute; top: -8px; right: -12px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px;
+    background: var(--orange); color: #fff; font-size: .72rem; font-weight: 700; display: grid; place-items: center;
+  }
+  .badge[hidden] { display: none; }
   .nav-toggle, .burger { display: none; }
 
   @media (max-width: 820px) {
@@ -56,6 +78,8 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     }
     nav a:not(.btn) { padding: 12px 0; border-bottom: 1px solid var(--line); }
     nav .call { margin-top: 12px; justify-content: center; }
+    .cart-link { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .badge { position: static; display: inline-grid; margin-left: 6px; }
     .nav-toggle:checked ~ nav { display: flex; }
   }
 </style>

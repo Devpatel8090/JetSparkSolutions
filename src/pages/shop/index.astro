@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import AddToCartScript from '../../components/AddToCartScript.astro';
+import catalogue from '../../data/products.json';
+import site from '../../data/site.json';
+---
+
+<Base title="Shop" description={`Buy fire extinguishers, fire alarm parts, hydrant equipment and safety accessories from ${site.name}.`}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Shop Fire Safety Equipment</h1>
+      <p>Order online and pay on delivery or by UPI. We'll confirm availability and delivery on WhatsApp or by phone.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filters" role="tablist" aria-label="Filter by category">
+        <button class="chip active" data-filter="all">All products</button>
+        {catalogue.categories.map((c) => (
+          <button class="chip" data-filter={c.id}>{c.icon} {c.name}</button>
+        ))}
+      </div>
+      <div class="grid products">
+        {catalogue.products.map((p) => <ProductCard product={p} />)}
+      </div>
+      <p class="note">Prices include GST unless stated otherwise. Delivery charges, if any, are confirmed with your order.</p>
+    </div>
+  </section>
+
+  <AddToCartScript />
+</Base>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('.product');
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.toggle('active', c === chip));
+      const f = chip.dataset.filter;
+      cards.forEach((card) => (card.hidden = f !== 'all' && card.dataset.category !== f));
+    }),
+  );
+</script>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; justify-content: center; }
+  .chip {
+    font: inherit; font-weight: 500; cursor: pointer; background: var(--bg-soft); border: 1px solid var(--line);
+    padding: 9px 16px; border-radius: 999px; color: var(--ink);
+  }
+  .chip.active { background: linear-gradient(90deg, var(--red), var(--orange)); color: #fff; border-color: transparent; }
+  .products { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .products :global([hidden]) { display: none; }
+  .note { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 32px; }
+</style>
